@@ -34,6 +34,22 @@ private:
     // Afegiu-hi aquí els atributs que manquen    
 };
       
-template<class Key, class Value> Position<Key, Value>:: Position(const Key key){return key}
-template<class Key, class Value> Position<Key, Value>:: Position(const Position<Key, Value>& orig){}
+template<class Key, class Value> Position<Key, Value>:: Position(const Key key){
+    this->key = key;
+    this->parent = nullptr;
+    this->left = nullptr;
+    this->right = nullptr;
+}
+
+template<class Key, class Value> Position<Key, Value>:: Position(const Position<Key, Value>& orig){
+    this->key = orig.key;
+    this->values = orig.values;
+    this->parent = orig.parent;
+    this->left = orig.left;
+    this->right = orig.right;
+}
+
+template<class Key, class Value> Position<Key, Value>:: ~Position(){}
+
+
 
