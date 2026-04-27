@@ -14,7 +14,7 @@ public:
     void printPreOrder(const Position<Key, Value> *node = nullptr) const;
     void printPostOrder(const Position<Key, Value> *node = nullptr) const;
     bool identicalTree(const BinaryTree<Key, Value>& other) const;
-    protected:
+protected:
     Position<Key, Value>* root;
 private:
     int _size;
