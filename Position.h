@@ -1,3 +1,8 @@
+#ifndef POSITION_H
+#define POSITION_H
+
+#include <vector>
+
 template <class Key, class Value>
 class Position {
 public:
@@ -6,15 +11,18 @@ public:
     virtual ~Position();
     /* Modificadors */
     // Declareu-hi aquí els modificadors (setters) dels atributs que manquen
-    const Value Parent setParent() const;
+    void setParent(Position<Key, Value>* p);
+    void setLeft(Position<Key, Value>* l);
+    void setRight(Position<Key, Value>* r);
 
 
     /* Consultors */
     const Key& getKey() const;
-    const vector<Value>& getValues() const;
-    const Value& getleft();
-    const Value& getright();
     // Declareu-hi aquí els consultors (getters) dels atributs que manquen
+    const vector<Value>& getValues() const;
+    Position<Key, Value>* getParent() const;
+    Position<Key, Value>* getLeft() const;
+    Position<Key, Value>* getRight() const;
 
     /* Operacions */
     bool isRoot() const;
@@ -27,29 +35,11 @@ public:
 private:
     Key key;
     vector<Value> values;
-    Value parent;
-    Value left;
-    Value right;
-    
+    Position<Key, Value>* parent;
+    Position<Key, Value>* left;
+    Position<Key, Value>* right;
     // Afegiu-hi aquí els atributs que manquen    
 };
       
-template<class Key, class Value> Position<Key, Value>:: Position(const Key key){
-    this->key = key;
-    this->parent = nullptr;
-    this->left = nullptr;
-    this->right = nullptr;
-}
-
-template<class Key, class Value> Position<Key, Value>:: Position(const Position<Key, Value>& orig){
-    this->key = orig.key;
-    this->values = orig.values;
-    this->parent = orig.parent;
-    this->left = orig.left;
-    this->right = orig.right;
-}
-
-template<class Key, class Value> Position<Key, Value>:: ~Position(){}
-
 
 
