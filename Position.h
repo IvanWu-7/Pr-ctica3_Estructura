@@ -7,7 +7,7 @@ template <class Key, class Value>
 class Position {
 public:
     Position(const Key key);
-    Position(const Position<Key, Value>& orig);
+    Position(const Position<Key, Value> &orig);
     virtual ~Position();
     /* Modificadors */
     // Declareu-hi aquí els modificadors (setters) dels atributs que manquen
@@ -19,7 +19,7 @@ public:
     /* Consultors */
     const Key& getKey() const;
     // Declareu-hi aquí els consultors (getters) dels atributs que manquen
-    const vector<Value>& getValues() const;
+    const std::vector<Value>& getValues() const;
     Position<Key, Value>* getParent() const;
     Position<Key, Value>* getLeft() const;
     Position<Key, Value>* getRight() const;
@@ -34,12 +34,12 @@ public:
     
 private:
     Key key;
-    vector<Value> values;
+    std::vector<Value> values;
     Position<Key, Value>* parent;
     Position<Key, Value>* left;
     Position<Key, Value>* right;
     // Afegiu-hi aquí els atributs que manquen    
 };
       
-
+#endif //POSITION_H
 

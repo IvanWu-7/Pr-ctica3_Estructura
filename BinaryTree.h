@@ -1,9 +1,12 @@
+
+
 template <class Key, class Value>
 class BinaryTree {
 public:
     BinaryTree();
     BinaryTree(const BinaryTree<Key, Value>& orig);
     virtual ~BinaryTree();
+    void deleteSubtree(Position<Key, Value> *node);
     bool isEmpty() const;
     Position<Key, Value>* getRoot() const;
     int size() const;

@@ -1,10 +1,11 @@
 #include "Position.h"
 #include <vector>
 #include <algorithm>  
+#include "BinaryTree.h"
 
 
 template <class Key, class Value>
-Position<Key, Value>::Position(const Key& key)
+Position<Key, Value>::Position(const Key key)
 {
     this->key    = key;
     this->parent = nullptr;
@@ -69,7 +70,6 @@ Position<Key, Value>* Position<Key, Value>::getRight() const {
     return right;
 }
 
-
 template <class Key, class Value>
 bool Position<Key, Value>::isRoot() const {
     return parent == nullptr;
@@ -89,10 +89,8 @@ int Position<Key, Value>::depth() const {
 template <class Key, class Value>
 int Position<Key, Value>::height() const {
     if (isLeaf()) return 0;
-    
     int hLeft = (left != nullptr) ? left->height() : -1;
     int hRight = (right != nullptr) ? right->height() : -1;
-    
     return 1 + std::max(hLeft, hRight);
 }
 
@@ -105,7 +103,5 @@ template <class Key, class Value>
 bool Position<Key, Value>::operator==(const Position<Key, Value>& other) const {
     if (key != other.key) return false;
     if (values.size() != other.values.size()) return false;
-    
-    // Comparar los vectores (deben tener exactamente los mismos valores en el mismo orden)
     return values == other.values;
 }
