@@ -12,10 +12,6 @@ public:
 private:
         
 
-
-
-
-
 }
 
 endif TUPLE_H 
