@@ -2,11 +2,12 @@
 #define POSITION_H
 
 #include <vector>
+#include <algorithm>
 
 template <class Key, class Value>
 class Position {
 public:
-    Position(const Key key);
+    Position(const Key& key);
     Position(const Position<Key, Value> &orig);
     virtual ~Position();
     /* Modificadors */
@@ -35,10 +36,10 @@ public:
 private:
     Key key;
     std::vector<Value> values;
+    // Afegiu-hi aquí els atributs que manquen  
     Position<Key, Value>* parent;
     Position<Key, Value>* left;
-    Position<Key, Value>* right;
-    // Afegiu-hi aquí els atributs que manquen    
+    Position<Key, Value>* right;    
 };
     
 template <class Key, class Value>
@@ -62,8 +63,7 @@ Position<Key, Value>::Position(const Position<Key, Value>& orig)
 
 template <class Key, class Value>
 Position<Key, Value>::~Position() {
-    delete left;
-    delete right;
+
 }
 
 template <class Key, class Value>
